@@ -11,7 +11,6 @@
   <link rel = "icon" href = 
   "https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png" 
             type = "image/x-icon">
-
 </head>
 <body>
  <div class="form-container">
@@ -28,16 +27,28 @@
         <textarea name="Why"  placeholder="Why you want to GFG KIIT?" rows="4" required></textarea>
         <input name="Resume Link" type="text" placeholder="Resume Link" required
         oninvalid="this.setCustomValidity('Please Give your Resume Link')" oninput="this.setCustomValidity('')">
+
+        <select id="Domain" name="Domain">
+          <option value="Select Domain">Select Domain</option>
+          <option value="Android Development">Android Development</option>
+          <option value="Web Development">Web Development</option>
+          <option value="Non-Tech">Non-Tech</option>
+          <option value="Cloud">Cloud</option>
+          <option value="Competitive Programming">Competitive Programming</option>
+        </select>
         <button type="submit">Send</button><br>
         <span id="msg"></span>
       </form>
       
       </div>
-      <fieldset style="border:2px solid pink; width:200px;float: right ;">
-        <p>This page was viewed</p>
-        <h1 id="count">0</h1>
-        <p>times</p>
+      <fieldset style="border:2px solid  darkgreen; width:200px;float: right ;">
+        <h1 id="count">0 </h1> <p>Page Views </p>
       </fieldset>
+      <footer>
+        <p >For Any Query:  <b>21052063@kiit.ac.in</b>  |  <b>21052123@kiit.ac.in</b> 
+        </p>
+      </footer>
+     
       <script>
         const scriptURL ='https://script.google.com/macros/s/AKfycbxoNlSuqLGhRl4eV1Y0fnRIlGHOxGFpGSR99ZmtEUVFTudKO0yAjzzwcwMl4rISMYfA/exec'
         const form = document.forms['submit-to-google-sheet']
@@ -68,6 +79,7 @@
           });
       }
       </script>
+
 
 </body>
 </html>
