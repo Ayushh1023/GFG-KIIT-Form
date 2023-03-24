@@ -4,9 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Form To Google Sheets</title>
+  <title>GFG Recruitment Form</title>
+
   <meta name="Vaibhav" content="Form">
   <link rel="stylesheet" href="style.css">
+  <link rel = "icon" href = 
+  "https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png" 
+            type = "image/x-icon">
 
 </head>
 <body>
@@ -28,10 +32,18 @@
         <span id="msg"></span>
       </form>
       
+      </div>
+      <fieldset style="border:2px solid pink; width:200px;float: right ;">
+        <p>This page was viewed</p>
+        <h1 id="count">0</h1>
+        <p>times</p>
+      </fieldset>
       <script>
         const scriptURL ='https://script.google.com/macros/s/AKfycbxoNlSuqLGhRl4eV1Y0fnRIlGHOxGFpGSR99ZmtEUVFTudKO0yAjzzwcwMl4rISMYfA/exec'
         const form = document.forms['submit-to-google-sheet']
         const msg= document.getElementById('msg')
+        const countEl = document.getElementById("count");
+       countvisits();
       
         form.addEventListener('submit', e => {
           e.preventDefault()
@@ -45,8 +57,17 @@
             })
             .catch(error => console.error('Error!', error.message))
         })
+
+
+
+      function countvisits() {
+        fetch('https://api.countapi.xyz/update/gfg-recruit/kiit?amount=1')
+          .then((res) => res.json())
+          .then((res) => {
+            countEl.innerHTML = res.value;
+          });
+      }
       </script>
-      </div>
 
 </body>
 </html>
