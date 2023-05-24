@@ -10,11 +10,13 @@
   }
 
   body {
+    background-position: center center; 
+    background-size: cover;
     background: #eee;
-    color: var(--purple);
+    /* color: var(--purple);
     padding: 10% 5%;
     font-family: system, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    line-height: 1.4;
+    line-height: 1.4; */
   }
 
   .form-container {
@@ -30,7 +32,9 @@
     width: 350px;
     min-height: 300px;
     margin: 0 auto;
-    box-shadow: 0 10px 50px 0 #ccc;
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
     margin-bottom: 2rem;
   }
   footer{
