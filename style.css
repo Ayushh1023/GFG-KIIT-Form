@@ -1,5 +1,5 @@
 :root {
-  --accent: #f18260;
+  --accent: red;
   --purple: #252431;
 }
 
@@ -16,10 +16,11 @@ body {
 }
 
 body {
-  /* background-image: radial-gradient(white 1px, transparent 0);
+  background-color: black;
+  background-image: radial-gradient(white 1px, transparent 0);
   background-size: 40px 40px;
   background-position: -19px -19px;
-  animation: moveBackground 5s linear infinite; */
+  animation: moveBackground 7s linear infinite;
 }
 
 @keyframes moveBackground {
@@ -27,20 +28,34 @@ body {
     background-position: -19px -19px;
   }
   100% {
-    background-position: 100px 100px;
+    background-position: 100px -19px;
   }
 }
 
 .logo-asidetext {
   font-size: xx-large;
   font-family: monospace;
+  background: linear-gradient(to right, rgb(0, 252, 0), yellow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.header {
-  /* background: linear-gradient(black, red, rgb(227, 243, 0)); */
- background: rgba(255, 255, 255, 0.45);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(3px);
+.header-combined {
+  
+
+  background: linear-gradient(to right, rgb(0, 255, 0), yellow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-align: center;
+  background-size: 400% 400%;
+  animation: gradient 4s ease infinite;
+  width: 100%; /* Set initial width to 100% */
+}
+
+/* .header {
+  background: linear-gradient(green, yellow);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,24 +63,65 @@ body {
   font-family: monospace;
 }
 
+.header2{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: medium;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient( yellow, green);
+	/* background-size: 400% 400%;
+	animation: gradient 3s ease infinite; */
+
+/* } */
 .form-container {
   position: relative;
   padding: 1rem;
   border-radius: 10px;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 1000px;
-  min-height: 300px;
+  width: 50%;
+  min-height: 500px;
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.45);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(3px);
+  background: rgba(255, 255, 255, 0.363);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2.7px);
+  -webkit-backdrop-filter: blur(2.7px);
+  border: 1px solid rgba(255, 255, 255, 0.66);
   margin-bottom: 2rem;
- 
-  box-shadow: -4px -3px 45px 21px rgba(255, 255, 255, 0.35);
+  animation: hoverAnimation 3s ease-in-out infinite alternate;
+
+  /* box-shadow: -4px -3px 45px 21px rgba(255, 255, 255, 0.35); */
+}
+@keyframes hoverAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.resume {
+  position: relative;
+}
+
+.resume .info-text {
+  position: absolute;
+  top: 0%;
+  left: 5px;
+  font-size: 12px;
+  color: red;
+  display: none;
+}
+
+.resume input:focus + .info-text,
+.resume input:not(:placeholder-shown) + .info-text {
+  display: block;
 }
 
 @keyframes gradient {

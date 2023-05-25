@@ -1,153 +1,158 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>GFG Recruitment Form</title>
 
-    <meta name="Vaibhav" content="Form"/>
-    <link rel="stylesheet" href="style.css"/>
-    <script src="holyscript.js"></script>
+    <meta name="Vaibhav" content="Form" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- <script src="holyscript.js"></script> -->
     <link
-            rel="icon"
-            href="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png"
-            type="image/x-icon"
+      rel="icon"
+      href="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png"
+      type="image/x-icon"
     />
-</head>
-<body background="bg.jpg">
-<div class="header">
-    <h1>
-        GeeksForGeeks KIIT Recruitment 2023 
-    </h1>
-</div>
-<!-- <div class="header2">
-    <h2>
+    
+  </head>
+  <body>
+    <div class="header-combined">
+      <h1 style="font-size: xx-large;">GeeksForGeeks KIIT Recruitment 2023</h1>
+    
+      <h2>
         Android Development | Web Development | Cloud Computing | Machine
         Learning/Artificial Intelligence | Competitive Programming
-    </h2>
-</div> -->
+      </h2>
+    </div>
 
-<br/><br/><br/>
-<div class="form-container">
-    <img src="logo-3.c4f46278.svg" height="80px"/>
-    <!-- <div class="logo-asidetext">
+    <br /><br /><br />
+
+
+    <div class="form-container">
+      <img src="logo-3.c4f46278.svg" height="80px" />
+      <div class="logo-asidetext">
         ✏️Fill Up the Registration Form 📜 below ASAP👇👇
-    </div> -->
+      </div>
 
-    &nbsp;
-    <form name="submit-to-google-sheet">
+      &nbsp;&nbsp;
+      <form name="submit-to-google-sheet">
         <div class="email">
-            <input
-                    name="KIIT Email ID"
-                    type="email"
-                    placeholder="KIIT Email ID"
-                    required
-                    oninvalid="this.setCustomValidity('Please enter Your Email')"
-                    oninput="this.setCustomValidity('')"
-            />
-            <input
-                    name="Name"
-                    type="text"
-                    placeholder="Name"
-                    required
-                    oninvalid="this.setCustomValidity('Please enter Your Name')"
-                    oninput="this.setCustomValidity('')"
-            />
+          <input
+            name="KIIT Email ID"
+            type="email"
+            placeholder="KIIT Email ID"
+            required
+            oninvalid="this.setCustomValidity('Please enter Your Email')"
+            oninput="this.setCustomValidity('')"
+          />
+          <input
+            name="Name"
+            type="text"
+            placeholder="Name"
+            required
+            oninvalid="this.setCustomValidity('Please enter Your Name')"
+            oninput="this.setCustomValidity('')"
+          />
         </div>
         <div class="roll">
-            <input
-                    name="Roll"
-                    type="number"
-                    placeholder="Roll"
-                    required
-                    oninvalid="this.setCustomValidity('Please enter Your Roll Number')"
-                    oninput="this.setCustomValidity('')"
-            />
-            <input
-                    name="WhatsApp Number"
-                    type="text"
-                    placeholder="WhatsApp Number"
-                    required
-                    oninvalid="this.setCustomValidity('Please enter Your Phone Number')"
-                    oninput="this.setCustomValidity('')"
-            />
+          <input
+            name="Roll"
+            type="number"
+            placeholder="Roll"
+            required
+            oninvalid="this.setCustomValidity('Please enter Your Roll Number')"
+            oninput="this.setCustomValidity('')"
+          />
+          <input
+            name="WhatsApp Number"
+            type="text"
+            placeholder="WhatsApp Number"
+            required
+            oninvalid="this.setCustomValidity('Please enter Your Phone Number')"
+            oninput="this.setCustomValidity('')"
+          />
         </div>
         <textarea
-                name="Why"
-                placeholder="Why you should be a part of GFG KIIT?"
-                rows="4"
-                required
+          name="Why"
+          placeholder="Why you should be a part of GFG KIIT?"
+          rows="4"
+          required
         ></textarea>
-        <input
-                name="Resume Link"
-                type="text"
-                placeholder="Resume Link"
-                required
-                oninvalid="this.setCustomValidity('Please Give your Resume Link')"
-                oninput="this.setCustomValidity('')"
-        />
+        <div class="resume">
+            <input
+              name="Resume Link"
+              type="text"
+              placeholder="Resume Link"
+              required
+              oninvalid="this.setCustomValidity('Please Give your Resume Link')"
+              oninput="this.setCustomValidity('')"
+              onfocus="showInfoText(this)"
+              onblur="hideInfoText(this)"
+              onchange="updateInfoText(this)"
+            />
+            <span class="info-text">Please ensure the visibility of the document</span>
+          </div>
 
         <select id="Domain" name="Domain">
-            <option value="Select Domain">Select Domain</option>
-            <option value="Android Development">Android Development</option>
-            <option value="Web Development">Web Development</option>
-            <option value="Non-Tech">Non-Tech</option>
-            <option value="Cloud">Cloud</option>
-            <option value="Competitive Programming">
-                Competitive Programming
-            </option>
+          <option value="Select Domain">Select Domain</option>
+          <option value="Android Development">Android Development</option>
+          <option value="Web Development">Web Development</option>
+          <option value="Cloud">Cloud Computing</option>
+          <option value="Competitive Programming">
+            Competitive Programming
+          </option>
         </select>
         <select id="year" name="year">
-            <option value="Select Year">Select Year</option>
-            <option value="1st year">1st Year</option>
-            <option value="2nd year">2nd Year</option>
-            <option value="3rd year">3rd Year</option>
+          <option value="Select Year">Select Year</option>
+          <option value="1st year">1st Year</option>
+          <option value="2nd year">2nd Year</option>
+          <option value="3rd year">3rd Year</option>
         </select>
         <button type="submit">Send</button>
-        <br/>
+        <br />
         <span id="msg"></span>
-    </form>
-</div>
-<!-- <fieldset style="border: 2px solid darkgreen; width: 200px; float: right">
+      </form>
+    </div>
+    <!-- <fieldset style="border: 2px solid darkgreen; width: 200px; float: right">
   <h1 id="count">0</h1>
   <p>Page Views</p>
 </fieldset> -->
-<!-- <footer>
+    <!-- <footer>
     <p >For Any Query:  <b>21052063@kiit.ac.in</b>  |  <b>21052123@kiit.ac.in</b>
     </p>
   </footer> -->
 
-<script>
-    const scriptURL =
+    <script>
+      const scriptURL =
         "https://script.google.com/macros/s/AKfycbxoNlSuqLGhRl4eV1Y0fnRIlGHOxGFpGSR99ZmtEUVFTudKO0yAjzzwcwMl4rISMYfA/exec";
-    const form = document.forms["submit-to-google-sheet"];
-    const msg = document.getElementById("msg");
-    const countEl = document.getElementById("count");
-    countvisits();
+      const form = document.forms["submit-to-google-sheet"];
+      const msg = document.getElementById("msg");
+      const countEl = document.getElementById("count");
+      countvisits();
 
-    form.addEventListener("submit", (e) => {
+      form.addEventListener("submit", (e) => {
         e.preventDefault();
-        fetch(scriptURL, {method: "POST", body: new FormData(form)})
-            .then((response) => {
-                alert("Your msg has Sent Successfully");
-                msg.innerHTML = "Thankyou for your Submission";
-                setTimeout(function () {
-                    msg.innerHTML = "";
-                }, 5000);
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => {
+            alert("Your msg has Sent Successfully");
+            msg.innerHTML = "Thankyou for your Submission";
+            setTimeout(function () {
+              msg.innerHTML = "";
+            }, 5000);
 
-                form.reset();
-            })
-            .catch((error) => console.error("Error!", error.message));
-    });
+            form.reset();
+          })
+          .catch((error) => console.error("Error!", error.message));
+      });
 
-    function countvisits() {
+      function countvisits() {
         fetch("https://api.countapi.xyz/update/gfg-recruit/kiit?amount=1")
-            .then((res) => res.json())
-            .then((res) => {
-                countEl.innerHTML = res.value;
-            });
-    }
-</script>
-</body>
+          .then((res) => res.json())
+          .then((res) => {
+            countEl.innerHTML = res.value;
+          });
+      }
+    </script>
+  </body>
 </html>
