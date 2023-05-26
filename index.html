@@ -14,20 +14,18 @@
       href="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png"
       type="image/x-icon"
     />
-    
   </head>
   <body>
     <div class="header-combined">
-      <h1 style="font-size: xx-large;">GeeksForGeeks KIIT Recruitment 2023</h1>
-    
-      <h2>
+      <h1 style="font-size: xx-large">GeeksForGeeks KIIT Recruitment 2023</h1>
+
+      <!-- <h2>
         Android Development | Web Development | Cloud Computing | Machine
         Learning/Artificial Intelligence | Competitive Programming
-      </h2>
+      </h2> -->
     </div>
 
     <br /><br />
-
 
     <div class="form-container">
       <img src="logo-3.c4f46278.svg" height="80px" />
@@ -80,19 +78,21 @@
           required
         ></textarea>
         <div class="resume">
-            <input
-              name="Resume Link"
-              type="text"
-              placeholder="Resume Link"
-              required
-              oninvalid="this.setCustomValidity('Please Give your Resume Link')"
-              oninput="this.setCustomValidity('')"
-              onfocus="showInfoText(this)"
-              onblur="hideInfoText(this)"
-              onchange="updateInfoText(this)"
-            />
-            <span class="info-text">Please ensure the visibility of the document</span>
-          </div>
+          <input
+            name="Resume Link"
+            type="text"
+            placeholder="Resume Link"
+            required
+            oninvalid="this.setCustomValidity('Please Give your Resume Link')"
+            oninput="this.setCustomValidity('')"
+            onfocus="showInfoText(this)"
+            onblur="hideInfoText(this)"
+            onchange="updateInfoText(this)"
+          />
+          <span class="info-text"
+            >Please ensure the visibility of the document</span
+          >
+        </div>
 
         <select id="Domain" name="Domain">
           <option value="Select Domain">Select Domain</option>
@@ -117,43 +117,48 @@
     <!-- <fieldset style="border: 2px solid darkgreen; width: 200px; float: right">
   <h1 id="count">0</h1>
   <p>Page Views</p>
-</fieldset> --> 
+</fieldset> -->
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <footer>
-    <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">For Any Query:  <b>21052105@kiit.ac.in</b>  |  <b>21052123@kiit.ac.in</b>
-    </p>
-  </footer>
+      <p
+        style="
+          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+            'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        "
+      >
+        For Any Query: <b>21052105@kiit.ac.in</b> | <b>21052123@kiit.ac.in</b>
+      </p>
+    </footer>
 
     <script>
       const scriptURL =
         "https://script.google.com/macros/s/AKfycbxoNlSuqLGhRl4eV1Y0fnRIlGHOxGFpGSR99ZmtEUVFTudKO0yAjzzwcwMl4rISMYfA/exec";
       const form = document.forms["submit-to-google-sheet"];
       const msg = document.getElementById("msg");
-      const countEl = document.getElementById("count");
-      countvisits();
 
-      form.addEventListener("submit", (e) => {
+      form.addEventListener("submit", async (e) => {
         e.preventDefault();
-        fetch(scriptURL, { method: "POST", body: new FormData(form) })
-          .then((response) => {
-            alert("Your msg has Sent Successfully");
-            msg.innerHTML = "Thankyou for your Submission";
-            setTimeout(function () {
-              msg.innerHTML = "";
-            }, 5000);
 
-            form.reset();
-          })
-          .catch((error) => console.error("Error!", error.message));
+        try {
+          form.reset();
+          await fetch(scriptURL, { method: "POST", body: new FormData(form) });
+          alert("Your credentials have been recorded successfully");
+          msg.innerHTML = "Thank you for your submission";
+          setTimeout(() => {
+            msg.innerHTML = "";
+          }, 200); // Show the success message for 0.5 seconds
+        } catch (error) {
+          console.error("Error!", error.message);
+        }
       });
 
-      function countvisits() {
-        fetch("https://api.countapi.xyz/update/gfg-recruit/kiit?amount=1")
-          .then((res) => res.json())
-          .then((res) => {
-            countEl.innerHTML = res.value;
-          });
-      }
+      // function countvisits() {
+      //   fetch("https://api.countapi.xyz/update/gfg-recruit/kiit?amount=1")
+      //     .then((res) => res.json())
+      //     .then((res) => {
+      //       countEl.innerHTML = res.value;
+      //     });
+      // }
     </script>
   </body>
 </html>
