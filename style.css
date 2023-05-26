@@ -38,9 +38,11 @@ body {
   background-size:auto; */
 
   /*smoky bg*/
-  background: linear-gradient(90deg, #0c9e64, #0a855a, #07704f, #054645, #032c3a);
-  animation: smokeAnimation 2s ease-in-out infinite;
-  background-size: 400% 400%;
+  /*background: linear-gradient(90deg, #0c9e64, #0a855a, #07704f, #054645, #032c3a);*/
+  /*animation: smokeAnimation 2s ease-in-out infinite;*/
+  /*background-size: 100% 100%;*/
+  background-repeat: no-repeat;
+  background-size: auto;
 }
 
 @keyframes smokeAnimation {

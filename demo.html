@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Signika', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #111;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .container .box {
+            position: relative;
+            width: 500px;
+            min-height: 400px; /* Set a minimum height */
+            color: #fff;
+            background: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 30px;
+            transition: 0.5s;
+        }
+
+        .container .box:hover {
+            transform: translateY(-20px);
+        }
+
+        .container .box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(315deg, #4dff03, #00d0ff);
+        }
+
+        .container .box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(315deg, #4dff03, #00d0ff);
+            filter: blur(30px);
+        }
+
+        .container .box span {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            right: 6px;
+            bottom: 6px;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1; /* Change the z-index value to a higher number, e.g., 1 */
+        }
+
+        .container .box span::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+        }
+
+        .container .box span::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+        }
+
+        .container .box .content {
+            position: relative;
+            padding: 20px;
+            text-align: center;
+            z-index: 3;
+        }
+
+        .container .box .content h2 {
+            font-size: 1.5em;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .container .box .content form input,
+        .container .box .content form select,
+        .container .box .content form textarea {
+            width: 100%;
+            padding: 10px 20px;
+            font-size: 1em;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 20px;
+            background: #eee;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .container .box .content form input:focus,
+        .container .box .content form select:focus,
+        .container .box .content form textarea:focus {
+            background: #fff;
+        }
+
+        .container .box .content form textarea {
+            resize: none;
+            height: 120px;
+        }
+
+        .container .box .content form button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background: #4dff03;
+            color: #111;
+            border: none;
+            cursor: pointer;
+        }
+        .circles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .circles li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.45);
+            animation: animate 10s linear infinite;
+            bottom: -150px;
+        }
+
+        .circles li:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }
+
+        .circles li:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 5s;
+        }
+
+        .circles li:nth-child(3) {
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+        }
+
+        .circles li:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }
+
+        .circles li:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }
+
+        .circles li:nth-child(6) {
+            left: 75%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 3s;
+        }
+
+        .circles li:nth-child(7) {
+            left: 35%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 7s;
+        }
+
+        .circles li:nth-child(8) {
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 15s;
+            animation-duration: 45s;
+        }
+
+        .circles li:nth-child(9) {
+            left: 20%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 2s;
+            animation-duration: 35s;
+        }
+
+        .circles li:nth-child(10) {
+            left: 85%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 0s;
+            animation-duration: 11s;
+        }
+        @keyframes animate {
+
+            0%{
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
+            }
+
+            100%{
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+
+        }
+        /* Progress Bar Styles */
+        /*.container .box .content .progress-bar {*/
+        /*    position: relative;*/
+        /*    width: 100%;*/
+        /*    height: 10px;*/
+        /*    background-color: #eee;*/
+        /*    border-radius: 10px;*/
+        /*    overflow: hidden;*/
+        /*}*/
+        .container .box .content .progress-bar {
+            position: relative;
+            width: 100%;
+            height: 10px;
+            background-color: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            visibility: hidden; /* Add this line to hide the progress bar initially */
+        }
+
+
+        .container .box .content .progress-bar .progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: #4dff03;
+            transition: width 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+<ul class="circles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<div class="container">
+    <div class="box">
+        <span></span>
+        <div class="content">
+            <form name="submit-to-google-sheet">
+                <img src="logo-3.c4f46278.svg" height="80px" />
+                <h2 style="color: lightgreen">GFG Recruitment Form</h2>
+
+                <input name="KIIT Email ID" type="email" placeholder="KIIT Email ID" required oninvalid="this.setCustomValidity('Enter Your Email ID')" oninput="this.setCustomValidity('')">
+                <input name="Name" type="text" placeholder="Name" required oninvalid="this.setCustomValidity('Enter Your Name')" oninput="this.setCustomValidity('')">
+                <input name="Roll" type="number" placeholder="Roll" required oninvalid="this.setCustomValidity('Enter Your Roll Number')" oninput="this.setCustomValidity('')">
+                <input name="WhatsApp Number" type="text" placeholder="WhatsApp Number" required oninvalid="this.setCustomValidity('Enter Your Phone Number')" oninput="this.setCustomValidity('')">
+                <textarea name="Why" placeholder="Why you should be a part of GFG KIIT?" rows="4" required></textarea>
+                <input name="Resume Link" type="text" placeholder="Resume Link" required oninvalid="this.setCustomValidity('Please Give your Resume Link')" oninput="this.setCustomValidity('')">
+                <select id="Domain" name="Domain">
+                    <option value="Select Domain">Select Domain</option>
+                    <option value="Android Development">Android Development</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Cloud">Cloud Computing</option>
+                    <option value="Competitive Programming">Competitive Programming</option>
+                </select>
+                <select id="year" name="year">
+                    <option value="Select Year">Select Year</option>
+                    <option value="1st year">1st Year</option>
+                    <option value="2nd year">2nd Year</option>
+                    <option value="3rd year">3rd Year</option>
+                </select>
+<!--                <br><br>-->
+<!--                <div class="progress-bar">-->
+<!--                    <div class="progress"></div>-->
+<!--                </div>-->
+<!--                <br>-->
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    const scriptURL =
+        "https://script.google.com/macros/s/AKfycbxoNlSuqLGhRl4eV1Y0fnRIlGHOxGFpGSR99ZmtEUVFTudKO0yAjzzwcwMl4rISMYfA/exec";
+    const form = document.forms["submit-to-google-sheet"];
+    const msg = document.getElementById("msg");
+    const submitButton = document.querySelector('button[type="submit"]');
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        submitButton.disabled = true;
+
+        try {
+            await fetch(scriptURL, { method: "POST", body: new FormData(form) });
+
+            alert("Your credentials have been recorded successfully");
+
+            window.location.href = "https://gfgkiit.netlify.app/Member";
+
+            form.reset();
+            submitButton.disabled = false;
+        } catch (error) {
+            console.error("Error!", error.message);
+        }
+    });
+
+</script>
+
+
+
+<footer>
+    <marquee style="
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: auto;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.363);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2.7px);
+  -webkit-backdrop-filter: blur(2.7px);
+  border: 1px solid rgba(255, 255, 255, 0.66);
+  color: #00d0ff;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+            'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
+    >
+        For Any Query: <b>21052105@kiit.ac.in</b> | <b>21052123@kiit.ac.in</b>
+    </marquee>
+</footer>
+<header style="
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  height: auto;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.363);
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2.7px);
+  -webkit-backdrop-filter: blur(2.7px);
+  border: 1px solid rgba(255, 255, 255, 0.66);
+  color: #00d0ff;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+            'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+<h1>Geeks For Geeks Registraion Form</h1>
+</header>
+
+</body>
+</html>

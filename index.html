@@ -15,7 +15,7 @@
       type="image/x-icon"
     />
   </head>
-  <body>
+  <body background="bgk.jpg">
     <div class="header-combined">
       <h1 style="font-size: xx-large">GeeksForGeeks KIIT Recruitment 2023</h1>
 
@@ -30,7 +30,7 @@
     <div class="form-container">
       <img src="logo-3.c4f46278.svg" height="80px" />
       <div class="logo-asidetext">
-        ✏️Fill Up the Registration Form 📜 below ASAP👇👇
+        ✏Fill Up the Registration Form
       </div>
 
       &nbsp;&nbsp;
@@ -135,30 +135,29 @@
         "https://script.google.com/macros/s/AKfycbxoNlSuqLGhRl4eV1Y0fnRIlGHOxGFpGSR99ZmtEUVFTudKO0yAjzzwcwMl4rISMYfA/exec";
       const form = document.forms["submit-to-google-sheet"];
       const msg = document.getElementById("msg");
+      const submitButton = document.querySelector('button[type="submit"]');
 
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
+        submitButton.disabled = true;
 
         try {
-          form.reset();
+
           await fetch(scriptURL, { method: "POST", body: new FormData(form) });
           alert("Your credentials have been recorded successfully");
           msg.innerHTML = "Thank you for your submission";
           setTimeout(() => {
             msg.innerHTML = "";
+            form.reset();
+            submitButton.disabled = false;
+
           }, 200); // Show the success message for 0.5 seconds
         } catch (error) {
           console.error("Error!", error.message);
         }
       });
 
-      // function countvisits() {
-      //   fetch("https://api.countapi.xyz/update/gfg-recruit/kiit?amount=1")
-      //     .then((res) => res.json())
-      //     .then((res) => {
-      //       countEl.innerHTML = res.value;
-      //     });
-      // }
+
     </script>
   </body>
 </html>
