@@ -13,10 +13,7 @@
       href="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png"
       type="image/x-icon"
     />
-    <script
-      src="https://kit.fontawesome.com/aea791b876.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/aea791b876.js" crossorigin="anonymous"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
@@ -833,8 +830,7 @@
     </div>
 
     <script>
-      const scriptURL =
-        "https://script.google.com/macros/s/AKfycbxoNlSuqLGhRl4eV1Y0fnRIlGHOxGFpGSR99ZmtEUVFTudKO0yAjzzwcwMl4rISMYfA/exec";
+      const scriptURL = "https://script.google.com/macros/s/AKfycbxoNlSuqLGhRl4eV1Y0fnRIlGHOxGFpGSR99ZmtEUVFTudKO0yAjzzwcwMl4rISMYfA/exec";
       const form = document.forms["submit-to-google-sheet"];
       const msg = document.getElementById("msg");
       const submitButton = document.querySelector('button[type="submit"]');
@@ -844,19 +840,27 @@
         submitButton.disabled = true;
 
         try {
-          await fetch(scriptURL, { method: "POST", body: new FormData(form) });
+          const submissionTime = new Date().toLocaleString();
+          const formData = new FormData(form);
+          formData.append("Submission Time", submissionTime);
 
-          alert("Your credentials have been recorded successfully");
+          const response = await fetch(scriptURL, { method: "POST", body: formData });
 
-          window.location.href = "https://gfgkiit.netlify.app/Member";
+          if (response.ok) {
+            alert("Your credentials have been recorded successfully");
+            window.location.href = "https://gfgkiit.netlify.app/Member";
+            form.reset();
+          } else {
+            throw new Error("Error recording submission");
+          }
 
-          form.reset();
           submitButton.disabled = false;
         } catch (error) {
           console.error("Error!", error.message);
         }
       });
     </script>
+
 
     <footer>
       <p
