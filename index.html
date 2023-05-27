@@ -8,10 +8,15 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>GFG Recruitment</title>
-    <link rel = "icon" href =
-            "https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png"
-          type = "image/x-icon">
-    <script src="https://kit.fontawesome.com/aea791b876.js" crossorigin="anonymous"></script>
+    <link
+      rel="icon"
+      href="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png"
+      type="image/x-icon"
+    />
+    <script
+      src="https://kit.fontawesome.com/aea791b876.js"
+      crossorigin="anonymous"
+    ></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
@@ -54,7 +59,19 @@
         align-items: center;
         margin: 20px 30px;
         transition: 0.5s;
-        animation: gradient 1s ease infinite, frame-enter 10s linear reverse;
+        animation: gradient 1s ease infinite, frame-enter 10s linear reverse,
+          hoverAnimation 4s ease-in-out infinite alternate;
+      }
+      @keyframes hoverAnimation {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+        100% {
+          transform: translateY(0);
+        }
       }
       @media (min-width: 768px) {
         .container .box {
@@ -222,7 +239,7 @@
         font-weight: 500;
         margin-bottom: 10px;
       }
-      input:focus {
+      input:focus ,textarea:focus {
         animation: box-glow 1s ease-out infinite alternate;
       }
 
@@ -553,7 +570,7 @@
           left: -7px;
         }
 
-        .row-1 section .icon { 
+        .row-1 section .icon {
           left: -60px;
         }
       }
@@ -573,7 +590,8 @@
   </head>
 
   <body>
-    <div class = "header"
+    <div
+      class="header"
       style="
         z-index: 4;
         position: fixed;
@@ -596,8 +614,8 @@
     >
       <h1>GeeksForGeeks Recruitment 2023</h1>
     </div>
-    
-    <center><h1 style="color: white; margin-top: 100px;">Timeline</h1></center>
+
+    <center><h1 style="color: white; margin-top: 100px">Timeline</h1></center>
     <ul class="circles">
       <li></li>
       <li></li>
@@ -814,7 +832,6 @@
       </div>
     </div>
 
-
     <script>
       const scriptURL =
         "https://script.google.com/macros/s/AKfycbxoNlSuqLGhRl4eV1Y0fnRIlGHOxGFpGSR99ZmtEUVFTudKO0yAjzzwcwMl4rISMYfA/exec";
@@ -841,7 +858,6 @@
       });
     </script>
 
-
     <footer>
       <p
         style="
@@ -865,7 +881,6 @@
       >
         For Any Query: <b>21052105@kiit.ac.in</b> | <b>21052123@kiit.ac.in</b>
       </p>
-
     </footer>
   </body>
 </html>
